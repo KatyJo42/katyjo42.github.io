@@ -2,7 +2,6 @@
 const firstP = document.querySelector('p')
 console.log(firstP)
 
-alert("hey! Howdy! hey!")
 
 const nav = document.querySelector('nav')
 nav.style.textDecoration = 'underline'
@@ -10,6 +9,7 @@ nav.style.textDecoration = 'underline'
 const contactA = nav.querySelector('#contact #about')
 contactA.style.backgroundColor = "#3388ff"
 
+const hours = new Date().getHours(); 
 
 
 document.addEventListener('click', (e) => {

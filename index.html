@@ -20,7 +20,27 @@
 
 
     <section>
-        <h2 class="active">Hey! Howdy! Hey!</h2>
+        <h1>"Hey! Howdy! Hey!</h1>
+
+        <div> 
+            <h2 id="welcome"></h2>
+        
+                <script>
+                    const hours = new Date().getHours(); 
+            
+                    const isMorning = hours >= 4 && hours < 12 // is it morning?
+                    const isAfternoon = hours >= 12 && hours < 17 // is it afternoon?
+                    const isEvening = hours >= 17 || hours < 4 // is it evening?
+            
+                    let message = "Top of the Evening to You!"; // Default
+            
+                    if (isMorning) message = "Good Morrow!";
+                    else if (isAfternoon) message = "Good Afternoon";
+            
+                    document.getElementById("welcome").textContent = message;
+                </script>
+        </div>
+        
         <p>My name is Katy Johnston! I like stuff and things. Also things and stuff. Thanks for your time. </p>
          <img src="img/bridgeSunset.jpg" alt="Me in Ireland>" width="870" height="883">
     </section>
