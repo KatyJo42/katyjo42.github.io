@@ -1,3 +1,5 @@
+// storing in local storage
+localStorage.setItem("It's a secret to everybody.", "Zelda is the princess!");
 
 const firstP = document.querySelector('p')
 console.log(firstP)
