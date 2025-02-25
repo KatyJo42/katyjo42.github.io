@@ -8,11 +8,11 @@ console.log(firstP)
 const nav = document.querySelector('nav')
 nav.style.textDecoration = 'underline'
 
-const contactA = document.querySelector('#contact a')
+const contactA = document.querySelector('#contact')
 contactA.style.backgroundColor = "#3388ff"
 
 // Greeting 
-const hours = new Date().getHours(); 
+//const hours = new Date().getHours(); 
 
 document.addEventListener('click', (e) => {
     const section = e.target.closest('section')
@@ -47,8 +47,8 @@ const showImages = () => {
 
 showImages()
 
-const next = document.querySelector('#next')
-const prev = document.querySelector('#prev')
+const nextButton = document.querySelector('#next')
+const prevButton = document.querySelector('#prev')
 
 //element.addEventListener('event', function)
 
