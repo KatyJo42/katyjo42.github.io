@@ -16,11 +16,12 @@
         <a href="#" id="home">Home</a>
         <a href="#" id="about">About</a>
         <a href="#" id="contact">Contact</a>
+
     </nav>
 
 
     <section>
-        <h1>"Hey! Howdy! Hey!</h1>
+        <h1>"Hey! Howdy! Hey!"</h1>
 
         <div> 
             <h2 id="welcome"></h2>
@@ -28,9 +29,9 @@
                 <script>
                     const hours = new Date().getHours(); 
             
-                    const isMorning = hours >= 4 && hours < 12 // is it morning?
-                    const isAfternoon = hours >= 12 && hours < 17 // is it afternoon?
-                    const isEvening = hours >= 17 || hours < 4 // is it evening?
+                    const isMorning = hours >= 4 && hours < 12; // is it morning?
+                    const isAfternoon = hours >= 12 && hours < 17; // is it afternoon?
+                    const isEvening = hours >= 17 || hours < 4; // is it evening?
             
                     let message = "Top of the Evening to You!"; // Default
             
@@ -40,68 +41,67 @@
                     document.getElementById("welcome").textContent = message;
                 </script>
         </div>
+
         <div id="carousel">
             <img alt="Image 1">
             <img alt="Image 2">
             <img alt="Image 3">
         </div>
+
         <div id="buttons">
             <button id="prev">Previous</button>
             <button id="next">Next</button>
         </div>
-        
-        <p>My name is Katy Johnston!</p>
-         <img src="img/bridgeSunset.jpg" alt="Me in Ireland>" width="435" height="441">
 
-         <ul class="todo-list">
-            <!-- List items will go here -->
-        </ul>
-        
+    <section id="todo-section">
+        <h2>To-Do List</h2>
         <input type="text" id="new-todo" placeholder="Add a new item">
-        <button type="button">Add To Do</button>
+        <button id="add-button">Add Todo</button>
+        <ul id="todo-list" class="todo-list"></ul>
+    </section>
+        
+</section>
 
-
+    <section>   
+        <p>My name is Katy Johnston! I like stuff and things. Also things and stuff. Thanks for your time. </p>
+         <img src="img/bridgeSunset.jpg" alt="Me in Ireland" width="870" height="883">
     </section>
    
     <section>
-        <span>
-            <p>In no particular order...</p>
+        
+            <h3>In no particular order...</h3>
             <br>
-                <p><strong>BOOKS</strong></p>
-                <ul>
-                    <li>The Great Gatsby</li>
-                    <li>Catcher and the Rye</li>
-                    <li>Tell No One</li>
-                    <li>Frankenstien</li>
-                    <li>Pride & Prejudice</li>
-                    <li>A Discovery of Witches</li>
-                    <li>Much Ado About Nothing</li>
-                    <li>The Importance of Being Ernest</li>
-                    <li>The Tell-Tale Heart</li>
-                    <li>The Perks of Being a Wallflower</li>
-                </ul>
-          
-         <span>
+            <h3><strong>BOOKS</strong></p></h3>
+            <ul>
+                <li>The Great Gatsby</li>
+                <li>Catcher and the Rye</li>
+                <li>Tell No One</li>
+                <li>Frankenstien</li>
+                <li>Pride & Prejudice</li>
+                <li>A Discovery of Witches</li>
+                <li>Much Ado About Nothing</li>
+                <li>The Importance of Being Ernest</li>
+                <li>The Tell-Tale Heart</li>
+                <li>The Perks of Being a Wallflower</li>
+            </ul>
+    </section>
 
             <br>
 
-        <span>
-                <p><strong>MOVIES</strong></p>
-               <ul>
-                    <li>Breakfast at Tiffany's</li>
-                    <li>Goon</li>
-                    <li>Boondock Saints</li>
-                    <li>The Mummy</li>
-                    <li>Mr. Right</li>
-                    <li>The Princess Bride</li>
-                    <li>Kiss Kiss Bang Bang</li>
-                    <li>Phantom of the Opera</li>
-                    <li>Star Wars (Original Triology)</li>
-                    <li>House on Haunted Hill</li>
+    <section>
+            <h3><strong>MOVIES</strong></p></h3>
+            <ul>
+                <li>Breakfast at Tiffany's</li>
+                <li>Goon</li>
+                <li>Boondock Saints</li>
+                <li>The Mummy</li>
+                <li>Mr. Right</li>
+                <li>The Princess Bride</li>
+                <li>Kiss Kiss Bang Bang</li>
+                <li>Phantom of the Opera</li>
+                <li>Star Wars (Original Trilogy)</li>
+                <li>House on Haunted Hill</li>
                </ul>
-              
-        <span>   
-
     </section>
    
     <footer>
