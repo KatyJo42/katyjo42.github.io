@@ -28,7 +28,7 @@ nav a {
     padding: 10px;
     margin: 0 10px;
     transition: color 0.3s ease;
-	padding: 10px;
+	
 }
 
 nav a:hover {
@@ -38,19 +38,23 @@ nav a:hover {
 
 section {
     padding: 20px;
-	min-height: 80vh;
+	min-height: 33vh;
     text-align: center;
 }
-
-
 
 ul {
     list-style-type: none;
     color: white;
+    text-align: center;
 }
 
 h1 {
     color: white;
+}
+
+h3 {
+    color:white;
+    text-align: center;
 }
 
 #carousel {
