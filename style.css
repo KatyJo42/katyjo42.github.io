@@ -4,56 +4,65 @@ body {
     margin: 0;
     padding: 0;
     background-color: #c107fa;
-}
-
-header {
+    }
+    
+    header {
     background-color: #111;
     color: #ffffff;
     padding: 10px;
     text-align: center;
-	min-height: 10vh;
-}
-
-nav {
+    min-height: 10vh;
+    }
+    
+    nav {
     background-color: #333;
     color: #ec9df7;
     padding: 10px;
     text-align: center;
-}
-
-nav a {
-    color: #ec9df7; 
-	font-size: 20px;
+    }
+    
+    nav a {
+    color: #ec9df7;
+    font-size: 20px;
     text-decoration: none;
     padding: 10px;
     margin: 0 10px;
     transition: color 0.3s ease;
-	padding: 10px;
-}
-
-nav a:hover {
-	color: #1aa538;
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-section {
+    }
+    
+    nav a:hover {
+    color: #1aa538;
+    background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    section {
     padding: 20px;
-	min-height: 80vh;
+    min-height: 33vh;
     text-align: center;
-}
-
-
-
-ul {
+    }
+    
+    ul {
     list-style-type: none;
     color: white;
-}
-
-h1 {
+    text-align: center;
+    }
+    
+    h1 {
     color: white;
-}
-
-#carousel {
+    }
+    
+    h3 {
+    color:white;
+    text-align: center;
+    text-decoration: underline;
+    }
+    
+    h4 {
+    color:white;
+    text-align: center;
+    }
+    
+    #carousel {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,44 +70,44 @@ h1 {
     max-height: 300px;
     overflow: hidden;
     gap: 10px;
-}
-
-#carousel img {
+    }
+    
+    #carousel img {
     max-height: 300px;
     aspect-ratio: auto 300 / 400;
     border-radius: 10px;
-}
-
-#buttons {
+    }
+    
+    #buttons {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     margin-top: 10px;
-}
-
-p {
+    }
+    
+    p {
     text-align: center;
     color: white
-}
-
-footer {
+    }
+    
+    footer {
     background-color: #111;
     color:#ffffff;
     padding: 10px;
     text-align: center;
-	min-height: 10vh;
-}
-
-footer a {
-	color: #fff;
-	text-decoration: none;
-	transition: color 0.3s ease;
-	padding: 10px;
-	border-radius: 5px;
-}
-
-footer a:hover {
-	color: #1aa538;
-	background-color: rgba(0, 0, 0, 0.5);
-}
+    min-height: 10vh;
+    }
+    
+    footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 10px;
+    border-radius: 5px;
+    }
+    
+    footer a:hover {
+    color: #1aa538;
+    background-color: rgba(0, 0, 0, 0.5);
+    }
