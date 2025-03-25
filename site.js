@@ -138,5 +138,46 @@ showImages()
 
     loadTodos()
 
-
+    const getRandomPokemon = async () => {
+        try {
+            
+            const response = await fetch('https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 150) + 1)
+            const data = await response.json()
+            
+            // Get the Pokémon name and image URL
+            const pokemonName = data.name
+            const pokemonImageUrl = data.sprites.front_default
+            
+            console.log(`Random Pokémon: ${pokemonName}`)
+            
+            // Get the container element to display the data
+            const container = document.getElementById('pokemon-container')
+            
+            // Clear previous content in the container
+            container.innerHTML = ''
+            
+            // Create an image element
+            const img = document.createElement('img')
+            img.src = pokemonImageUrl  
+            img.alt = pokemonName      
+            
+            // Append the image to the container
+            container.append(img)
+            
+            // Optionally, you can also display the name of the Pokémon below the image
+            const nameElement = document.createElement('p')
+            nameElement.textContent = `Name: ${pokemonName}`
+            container.append(nameElement)
+    
+        } catch (error) {
+            console.error('Error fetching Pokémon:', error)
+        }
+    };
+    
+    // Pokémon button event listener
+    const pokemonButton = document.querySelector('button[onclick="getRandomPokemon()"]')
+    if (pokemonButton) {
+        pokemonButton.addEventListener('click', getRandomPokemon)
+    }
+    
 
