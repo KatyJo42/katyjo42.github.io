@@ -78,65 +78,47 @@ showImages()
 
 //To-Do List
 
-    const key ='todo-list'
-    const todoList = document.getElementById("todo-list")
-    const newTodoInput = document.getElementById("new-todo")
-    const addButton = document.getElementById("add-button")
+// Get the list from local storage
+const todos = JSON.parse(localStorage.getItem('todo-list')) || []
 
-    //load todo from localStorage
-    const saveTodos =(todos) => {
-        localStorage.setItem(key, JSON.stringify(todos))
-    }
 
-    //Render todos to the DOM
-    const renderTodos = (todos) => {
-        todoList.innerHTML = '';  // Clear the existing todo list before re-rendering
-        todos.forEach(todo => {
-            const li = document.createElement("li");
-            li.textContent = todo.text
-            li.classList.add("todo")
-   
-            // Toggle the completed status on click
-            li.addEventListener("click", () => {
-                todo.completed = !todo.completed
-                saveTodos(todos); // Save updated todos to localStorage
-                renderTodos(todos); // Re-render updated todos list
-            })
-   
-            // Create and add Delete Button
-            const deleteButton = document.createElement("button");
-            deleteButton.textContent = "Delete"
-            deleteButton.classList.add("delete")
-            deleteButton.addEventListener("click", (e) => {
-                e.stopPropagation()
-                const updatedTodos = todos.filter(t => t !== todo)
-                saveTodos(updatedTodos)
-                renderTodos(updatedTodos)
-            })
-   
-            li.appendChild(deleteButton)
-            todoList.appendChild(li)
-        })
-    }
+// Add a new item to the list
+todos.push({ text: input.value, completed: false })
 
-    const loadTodos = () => {
-        const todos = JSON.parse(localStorage.getItem(key)) || []
-        renderTodos(todos) //Render the todos to the DOM
-    }
+
+
+// Save the list to local storage
+localStorage.setItem('todo-list', JSON.stringify(todos))
+
+[
+    { "text": "Buy milk", "completed": false },
+    { "text": "Walk the dog", "completed": false },
+    { "text": "Do homework", "completed": false }
+]
+
+// Clear the li's before we recreate them
+todoList.innerHTML = ''
+
+// Create and add new list items to the DOM
+const li = document.createElement('li')
+li.textContent = todo.text
+todoList.append(li)
+    
+        
+
+
+   
 
     //Add New Todo Button
-    addButton?.addEventListener("click",() => {
-        const todoText = newTodoInput.value.trim()
-        if(todoText!=="") {
-            const todos = JSON.parse(localStorage.getItem(key)) || []
-            todos.push({text:todoText, completed: false})
-            saveTodos(todos)
-            renderTodos(todos)
-            newTodoInput.value =""
-        }
-    })
+   
+
 
     loadTodos()
+
+    const img = document.createElement('img')
+    img.src = // url of the image from the 'front_default' property
+    img.alt = // name of the pokemon
+    parentElement.append(img)
 
     const getRandomPokemon = async () => {
         try {
@@ -164,7 +146,7 @@ showImages()
             // Append the image to the container
             container.append(img)
             
-            // Optionally, you can also display the name of the Pokémon below the image
+            // display the name of Pokémon below 
             const nameElement = document.createElement('p')
             nameElement.textContent = `Name: ${pokemonName}`
             container.append(nameElement)
@@ -173,11 +155,12 @@ showImages()
             console.error('Error fetching Pokémon:', error)
         }
     };
-    
+    const url = 'https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 150)
+
+    renderPokemon
     // Pokémon button event listener
     const pokemonButton = document.querySelector('button[onclick="getRandomPokemon()"]')
     if (pokemonButton) {
         pokemonButton.addEventListener('click', getRandomPokemon)
     }
     
-
