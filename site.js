@@ -76,91 +76,83 @@ setInterval(() => {
 
 showImages()
 
-//To-Do List
 
-// Get the list from local storage
-const todos = JSON.parse(localStorage.getItem('todo-list')) || []
+//TO-DO LIST
 
+const addButton = document.getElementById('add')
+const lists = document.getElementById('lists')
+const textInput = document.querySelector('.textInput')
 
-// Add a new item to the list
-todos.push({ text: input.value, completed: false })
+window.addEventListener('load', () => {
+    getTodos().forEach(todo => createListItem(todo))
+})
 
+addButton.addEventListener('click', () => {
+    const text = textInput.value.trim()
+    if (!text) return
 
+    const newTodo = { text, completed: false }
+    createListItem(newTodo)
+    saveTodos([...getTodos(), newTodo])
+    textInput.value = ''
+})
 
-// Save the list to local storage
-localStorage.setItem('todo-list', JSON.stringify(todos))
+function getTodos() {
+    return JSON.parse(localStorage.getItem('todo-list')) || []
+}
 
-[
-    { "text": "Buy milk", "completed": false },
-    { "text": "Walk the dog", "completed": false },
-    { "text": "Do homework", "completed": false }
-]
+function saveTodos(todos) {
+    localStorage.setItem('todo-list', JSON.stringify(todos))
+}
 
-// Clear the li's before we recreate them
-todoList.innerHTML = ''
+function createListItem(todo) {
+    const li = document.createElement('li')
+    li.textContent = todo.text
+    li.style.textDecoration = todo.completed ? 'line-through': ''
 
-// Create and add new list items to the DOM
-const li = document.createElement('li')
-li.textContent = todo.text
-todoList.append(li)
-    
-        
+    li.addEventListener('click', () => {
+        todo.completed = !todo.completed
+        li.style.textDecoration = todo.completed ? 'line-through' : ''
+        updateTodoInStorage(todo.text, todo.completed)
+    })
 
+    lists.appendChild(li)
+}
 
-   
+function updateTodoInStorage(text, completed) {
+    const todos = getTodos().map(todo =>
+        todo.text === text ? { ...todo, completed } : todo
+    )
+    saveTodos(todos)
+}
 
-    //Add New Todo Button
-   
+// Get Random Pokemon
 
-
-    loadTodos()
-
-    const img = document.createElement('img')
-    img.src = // url of the image from the 'front_default' property
-    img.alt = // name of the pokemon
-    parentElement.append(img)
-
-    const getRandomPokemon = async () => {
-        try {
-            
-            const response = await fetch('https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 150) + 1)
-            const data = await response.json()
-            
-            // Get the Pokémon name and image URL
-            const pokemonName = data.name
-            const pokemonImageUrl = data.sprites.front_default
-            
-            console.log(`Random Pokémon: ${pokemonName}`)
-            
-            // Get the container element to display the data
-            const container = document.getElementById('pokemon-container')
-            
-            // Clear previous content in the container
-            container.innerHTML = ''
-            
-            // Create an image element
-            const img = document.createElement('img')
-            img.src = pokemonImageUrl  
-            img.alt = pokemonName      
-            
-            // Append the image to the container
-            container.append(img)
-            
-            // display the name of Pokémon below 
-            const nameElement = document.createElement('p')
-            nameElement.textContent = `Name: ${pokemonName}`
-            container.append(nameElement)
-    
-        } catch (error) {
-            console.error('Error fetching Pokémon:', error)
-        }
-    };
+const getRandomPokemon = async()=>{
     const url = 'https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 150)
+    const response = await fetch(url)   
+    const json = await response.json()
+    return json
+}
+const renderPokemon = async(pokemonParam)=>{
+    console.log(pokemonParam)
+    //create element img
+    const img = document.createElement('img')
+    //insert data to the element img
+    img.src = pokemonParam.sprites.front_default
+    img.alt = pokemonParam.name
+    //set the img to the DOM at the last div that was created
+    const pokemonElement = document.getElementById('pokemon')
+    pokemonElement.append(img)
+}
 
-    renderPokemon
-    // Pokémon button event listener
-    const pokemonButton = document.querySelector('button[onclick="getRandomPokemon()"]')
-    if (pokemonButton) {
-        pokemonButton.addEventListener('click', getRandomPokemon)
-    }
+const initPage = async () => {
+    const randomPokemon = await getRandomPokemon()
+    renderPokemon(randomPokemon)
+}
+initPage()
+
+
+
+
     
