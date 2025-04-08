@@ -136,12 +136,15 @@ const getRandomPokemon = async()=>{
 }
 const renderPokemon = async(pokemonParam)=>{
     console.log(pokemonParam)
-    //create element img
+    
     const img = document.createElement('img')
-    //insert data to the element img
+    
     img.src = pokemonParam.sprites.front_default
     img.alt = pokemonParam.name
-    //set the img to the DOM at the last div that was created
+
+    img.style.width = '200px'  
+    img.style.height = '200px'
+    
     const pokemonElement = document.getElementById('pokemon')
     pokemonElement.append(img)
 }
